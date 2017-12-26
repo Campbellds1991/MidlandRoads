@@ -67,7 +67,7 @@ window.onload = function () {
                          //Sending flakes back from the top when it exits
                          //Lets make it a bit more organic and let flakes enter from the left and right also.
                          if (p.x > W + 5 || p.x < -5 || p.y > H) {
-                              if (i % 3 > 0) //66.66% of the flakes
+                              if (i % W > H/4) //66.66% of the flakes
                               {
                                    particles[i] = { x: Math.random() * W, y: -10, r: p.r, d: p.d };
                               }

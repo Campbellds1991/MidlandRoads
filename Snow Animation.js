@@ -1,4 +1,3 @@
-<script>
 window.onload = function () {
     //canvas init
     var bg = document.getElementsByClassName("pane_layout")[0];
@@ -94,5 +93,3 @@ window.onload = function () {
     //animation loop
     setInterval(draw, 40);
 }
-
-</script>

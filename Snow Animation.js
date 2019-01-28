@@ -1,6 +1,8 @@
 window.onload = function () {
                //canvas init
-               var canvas = document.getElementByClassName("Content_bg")[0];
+               var bg = document.getElementByClassName("Content_bg")[0];
+               bg[0].innerHTML.append('<canvas id="snow" style="width:100%;height:100%;position:absolute;z-index:-1;"></canvas>');
+               var canvas = document.getElementById("snow");
                var ctx = canvas.getContext("2d");
                //console.log(ctx);
 

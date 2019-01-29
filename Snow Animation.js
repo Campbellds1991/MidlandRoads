@@ -1,6 +1,6 @@
 window.onload = function () {
     //canvas init
-    var bg = document.getElementsByClassName("pane_layout")[0];
+    var bg = document.getElementsByClassName("content_bg")[0];
     bg.parentElement.style.position = "relative";
     var newCanvas = document.createElement('canvas');
     newCanvas.style = "width:100%;height:100%;position:absolute;margin:0;";

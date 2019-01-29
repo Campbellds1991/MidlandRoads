@@ -3,7 +3,7 @@ window.onload = function () {
     var bg = document.getElementsByClassName("content_bg")[0];
     bg.parentElement.style.position = "relative";
     var newCanvas = document.createElement('canvas');
-    newCanvas.style = "width:100%;height:100%;position:absolute;margin:0;";
+    newCanvas.style = "width:100%;height:100%;position:absolute;margin:0;z-index:-1;";
     newCanvas.id = "snow";
     bg.parentNode.insertBefore(newCanvas, bg);
     var canvas = document.getElementById("snow");

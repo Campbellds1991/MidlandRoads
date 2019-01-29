@@ -4,7 +4,7 @@ window.onload = function () {
     bg.parentElement.style.position = "relative";
     bg.style.zIndex = '1';
     var newCanvas = document.createElement('canvas');
-    newCanvas.style = "width:100%;height:100%;position:absolute;margin:0;z-index:-1;";
+    newCanvas.style = "width:100%;height:100%;position:absolute;margin:0;z-index:0;";
     newCanvas.id = "snow";
     bg.parentNode.insertBefore(newCanvas, bg);
     var canvas = document.getElementById("snow");

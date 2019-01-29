@@ -1,11 +1,10 @@
 window.onload = function () {
     //canvas init
-    var bg = document.body.el;
-
+    var bg = document.getElementById('dnn_wrapper');
     var newCanvas = document.createElement('canvas');
     newCanvas.style = "width:100vw;height:100vh;position:fixed;margin:0;";
     newCanvas.id = "snow";
-    document.body.firstElementChild.insertBefore(newCanvas, bg);
+    bg.parentNode.insertBefore(newCanvas, bg);
     var canvas = document.getElementById("snow");
     var ctx = canvas.getContext("2d");
     //console.log(ctx);

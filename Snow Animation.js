@@ -23,20 +23,26 @@ window.onload = function () {
     var Arc = Math.log2(W) * ScaleFactor;
     console.log(Arc);
 
-
-    //snowflake particles
     var mp = Math.sqrt(H * W); //max particles
     console.log(mp);
     var particles = [];
-    for (var i = 0; i < mp; i++) {
-        var scaler = Math.random();
-        particles.push({
-            x: Math.random() * W, //x-coordinate
-            y: Math.random() * H, //y-coordinate
-            r: scaler * Arc + 1, //radius 1                          
-            d: Math.random() * mp //density
-        })
+
+    function initializeSnow() {  
+        particles = [];
+        for (var i = 0; i < mp; i++) {
+            var scaler = Math.random();
+            particles.push({
+                x: Math.random() * W, //x-coordinate
+                y: Math.random() * H, //y-coordinate
+                r: scaler * Arc + 1, //radius 1                          
+                d: Math.random() * mp //density
+            })
+        }
     }
+
+    initializeSnow();
+    //snowflake particles
+    
     //console.log(particles);
 
     //Lets draw the flakes
@@ -92,4 +98,18 @@ window.onload = function () {
     }
     //animation loop
     setInterval(draw, 40);
+    window.onresize = function () {
+        console.log("window resized")
+        W = canvas.clientWidth;
+        H = canvas.clientHeight;
+        canvas.width = canvas.clientWidth;
+        canvas.height = canvas.clientHeight;
+        initializeSnow();
+    };
+
+    function reportParticles() {
+        return particles;
+    }
 }
+
+

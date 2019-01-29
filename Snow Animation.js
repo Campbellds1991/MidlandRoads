@@ -1,12 +1,11 @@
 window.onload = function () {
     //canvas init
-    var bg = document.getElementsByClassName("content_bg")[0];
-    bg.parentElement.style.position = "relative";
-    bg.style.zIndex = '1';
+    var bg = document.body.el;
+
     var newCanvas = document.createElement('canvas');
-    newCanvas.style = "width:100%;height:100%;position:absolute;margin:0;z-index:0;";
+    newCanvas.style = "width:100vw;height:100vh;position:fixed;margin:0;";
     newCanvas.id = "snow";
-    bg.parentNode.insertBefore(newCanvas, bg);
+    document.body.firstElementChild.insertBefore(newCanvas, bg);
     var canvas = document.getElementById("snow");
     var ctx = canvas.getContext("2d");
     //console.log(ctx);
@@ -80,7 +79,7 @@ window.onload = function () {
             //Sending flakes back from the top when it exits
             //Lets make it a bit more organic and let flakes enter from the left and right also.
             if (p.x > W * 1.1 || p.x < W * -.1 || p.y > H) {
-                if (i % W > H / ((Math.abs(Math.sin(angle)) * H/W * 5) + 1)) //66.66% of the flakes
+                if (i % W > H / ((Math.abs(Math.sin(angle)) * H/W * 4) + 2)) //66.66% of the flakes
                 {
                     particles[i] = { x: Math.random() * W, y: -10, r: p.r, d: p.d };
                 }
@@ -88,11 +87,11 @@ window.onload = function () {
                     //If the flake is exitting from the right
                     if (Math.sin(angle) > 0) {
                         //Enter from the left
-                        particles[i] = { x: -5, y: Math.random() * H, r: p.r, d: p.d };
+                        particles[i] = { x: Math.random() * W * -.1 , y: Math.random() * H, r: p.r, d: p.d };
                     }
                     else {
                         //Enter from the right
-                        particles[i] = { x: W + 5, y: Math.random() * H, r: p.r, d: p.d };
+                        particles[i] = { x: (Math.random() * W * 1.1) + W, y: Math.random() * H, r: p.r, d: p.d };
                     }
                 }
             }

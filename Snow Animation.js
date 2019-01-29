@@ -18,7 +18,7 @@ window.onload = function () {
     canvas.width = W;
     canvas.height = H;
 
-
+    var percentSideFall = .5;
 
     var ScaleFactor = .3;
     var Arc = Math.log2(W) * ScaleFactor;
@@ -28,7 +28,7 @@ window.onload = function () {
     console.log(mp);
     var particles = [];
 
-    function initializeSnow() {  
+    function initializeSnow() {
         particles = [];
         for (var i = 0; i < mp; i++) {
             var scaler = Math.random();
@@ -43,7 +43,7 @@ window.onload = function () {
 
     initializeSnow();
     //snowflake particles
-    
+
     //console.log(particles);
 
     //Lets draw the flakes
@@ -78,8 +78,8 @@ window.onload = function () {
 
             //Sending flakes back from the top when it exits
             //Lets make it a bit more organic and let flakes enter from the left and right also.
-            if (p.x > W + 5 || p.x < -5 || p.y > H) {
-                if (i % W > H / 4) //66.66% of the flakes
+            if (p.x > W * 1.1 || p.x < W * -.1 || p.y > H) {
+                if (i % W > H / ((Math.abs(Math.sin(angle)) * 2) + 4)) //66.66% of the flakes
                 {
                     particles[i] = { x: Math.random() * W, y: -10, r: p.r, d: p.d };
                 }
@@ -96,6 +96,7 @@ window.onload = function () {
                 }
             }
         }
+        if (angle > 4 * Math.PI) { angle = angle - 2 * Math.PI }
     }
     //animation loop
     setInterval(draw, 40);
